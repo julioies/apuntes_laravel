@@ -1,0 +1,539 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.13">
+    
+    
+      
+        <title>4. Paquetes - Laravel 9</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ffa9267a.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#paquetes-laravel" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Laravel 9" class="md-header__button md-logo" aria-label="Laravel 9" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Laravel 9
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4. Paquetes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Laravel 9" class="md-nav__button md-logo" aria-label="Laravel 9" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Laravel 9
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comandos/" class="md-nav__link">
+        1. Comandos
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../instalacion/" class="md-nav__link">
+        2. Instalación
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        3. Apuntes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          4. Paquetes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        4. Paquetes
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#traduccion" class="md-nav__link">
+    Traducción
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugbar" class="md-nav__link">
+    DEBUGBAR
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crear-modelos-eloquent-desde-la-base-datos" class="md-nav__link">
+    CREAR MODELOS ELOQUENT desde la BASE DATOS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generar-crud-automaticamente" class="md-nav__link">
+    GENERAR CRUD AUTOMÁTICAMENTE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generar-pdf" class="md-nav__link">
+    GENERAR PDF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#descargar-ficheros-zip" class="md-nav__link">
+    DESCARGAR FICHEROS .ZIP
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#traduccion" class="md-nav__link">
+    Traducción
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugbar" class="md-nav__link">
+    DEBUGBAR
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crear-modelos-eloquent-desde-la-base-datos" class="md-nav__link">
+    CREAR MODELOS ELOQUENT desde la BASE DATOS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generar-crud-automaticamente" class="md-nav__link">
+    GENERAR CRUD AUTOMÁTICAMENTE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generar-pdf" class="md-nav__link">
+    GENERAR PDF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#descargar-ficheros-zip" class="md-nav__link">
+    DESCARGAR FICHEROS .ZIP
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="paquetes-laravel">PAQUETES LARAVEL</h1>
+<p>https://github.com/LaravelDaily/Best-Laravel-Packages</p>
+<h2 id="traduccion">Traducción</h2>
+<p>https://github.com/Laraveles/spanish</p>
+<h2 id="debugbar">DEBUGBAR</h2>
+<p><code>composer require barryvdh/laravel-debugbar --dev</code></p>
+<p>Dentro de config-&gt;App añadimos en provider</p>
+<p><code>Barryvdh\Debugbar\ServiceProvider::class,</code></p>
+<p>En aliases</p>
+<p><code>'Debugbar' =&gt; Barryvdh\Debugbar\Facade::class,</code></p>
+<h2 id="crear-modelos-eloquent-desde-la-base-datos">CREAR MODELOS ELOQUENT desde la BASE DATOS</h2>
+<p>Introducimos el comando de instalación del paquete</p>
+<p><code>composer require reliese/laravel --dev</code></p>
+<p>Registrar el provider en app/Providers/AppServiceProvider.php</p>
+<p><code>public function register()
+{
+    if ($this-&gt;app-&gt;environment() == 'local') {
+        $this-&gt;app-&gt;register(\Reliese\Coders\CodersServiceProvider::class);
+    }
+}</code></p>
+<p>Publicas el fichero de configuración:</p>
+<p><code>php artisan vendor:publish --tag=reliese-models</code></p>
+<p>Comandos: </p>
+<p>Crea todos los MODELOS de las tablas de la BD 
+<code>php artisan code:models</code></p>
+<p>Crea un MODELO de una tabla
+<code>php artisan code:models --table=users</code></p>
+<p>https://cristianllanos.medium.com/eloquent-models-from-my-database-5d74c632e03c#.qg7cd4vri
+https://github.com/reliese/laravel</p>
+<h2 id="generar-crud-automaticamente">GENERAR CRUD AUTOMÁTICAMENTE</h2>
+<p>https://github.com/awais-vteams/laravel-crud-generator</p>
+<p>https://diarioprogramador.com/crear-crud-en-laravel-con-generador-de-cruds/</p>
+<p>https://github.com/appzcoder/crud-generator</p>
+<h2 id="generar-pdf">GENERAR PDF</h2>
+<p>Instalamos libreria</p>
+<p><code>composer require barryvdh/laravel-dompdf</code></p>
+<p>añadimos la siguiente ruta en config/app.php en el array 'provider'</p>
+<p><code>Barryvdh\DomPDF\ServiceProvider::class,</code></p>
+<p>luego añadimos la siguiente ruta en config/app.php en el array 'aliases'</p>
+<p><code>'PDF' =&gt; Barryvdh\DomPDF\Facade::class,</code></p>
+<p>crearmos ruta en Web</p>
+<p><code>Route::get('/imprimir', 'RelacionController@imprimir')-&gt;name('imprimir');</code></p>
+<p>y una vista llamada 'imprimir.blade.php' con código en html</p>
+<pre><code class="language-php">&lt;body&gt;
+        &lt;h1&gt;Página de prueba&lt;/h1&gt;
+
+&lt;/body&gt;
+</code></pre>
+<p>en el controlador </p>
+<pre><code class="language-php">use PDF;
+......
+
+public function imprimir(){
+     $pdf = PDF::loadView('imprimir');
+     return $pdf-&gt;download('ejemplo.pdf');
+}
+</code></pre>
+<p>https://www.nigmacode.com/laravel/Generar-pdf-Dompdf-Laravel</p>
+<h2 id="descargar-ficheros-zip">DESCARGAR FICHEROS .ZIP</h2>
+<p><code>composer require chumper/zipper</code></p>
+<p>dentro de config/app.php en providers</p>
+<p><code>Chumper\Zipper\ZipperServiceProvider::class,</code></p>
+<p>en aliases</p>
+<p><code>'Zipper' =&gt; Chumper\Zipper\Zipper::class,</code></p>
+<p><strong><em> Controlador </em></strong></p>
+<pre><code class="language-php">use Zipper;
+
+class Controller extends BaseController
+{
+
+
+    public function comprimirDescargar()
+    {
+        /*Añadimos la ruta donde se encuentran los archivos que queramos comprimir,
+          en este ejemplo comprimimos todos los que se encuentran en la carpeta 
+          storage/app/public*/
+        $files = glob(storage_path('app/public/*'));
+
+        /* Le indicamos en que carpeta queremos que se genere el zip y los comprimimos*/
+        Zipper::make(storage_path('app/public/ejemplo.zip'))-&gt;add($files)-&gt;close();
+
+        /* Por último, si queremos descarlos, indicaremos la ruta del archiv, su nombre
+        y lo descargaremos*/
+        return response()-&gt;download(storage_path('app/public/ejemplo.zip'));
+    }
+
+
+}
+</code></pre>
+<p><strong><em> RUTA </em></strong>
+<code>Route::get('/comprimir', 'Controller@comprimirDescargar')-&gt;name('comprimir');</code></p>
+<p><strong><em> VISTA </em></strong></p>
+<p><code>&lt;a href="{{route('comprimir')}}"&gt;Comprimir y descargar&lt;/a&gt;</code></p>
+<p><strong><em> FAKER SEEDER </em></strong> </p>
+<p>https://www.tutsplanet.com/how-to-use-faker-with-laravel/</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.2a6f1dda.min.js"></script>
+      
+    
+  </body>
+</html>

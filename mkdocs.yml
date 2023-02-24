@@ -1,0 +1,23 @@
+site_name: Laravel 9
+docs_dir: "md"
+site_dir: "docs"
+dev_addr: localhost:4000
+nav:
+  - 1. Comandos: comandos.md
+  - 2. Instalación: instalacion.md
+  - 3. Apuntes: index.md
+  - 4. Paquetes: paquetes.md
+ 
+markdown_extensions:
+  - admonition
+  - attr_list
+
+theme: material
+
+extra_css:
+  - css/extra.css
+
+
+# plugins:
+#   - search
+#   - pdf-export

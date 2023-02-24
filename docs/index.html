@@ -1,0 +1,1714 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="instalacion/">
+      
+      
+        <link rel="next" href="paquetes/">
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.13">
+    
+    
+      
+        <title>Laravel 9</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ffa9267a.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="css/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#apuntes-laravel" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Laravel 9" class="md-header__button md-logo" aria-label="Laravel 9" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Laravel 9
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3. Apuntes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Laravel 9" class="md-nav__button md-logo" aria-label="Laravel 9" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Laravel 9
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="comandos/" class="md-nav__link">
+        1. Comandos
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="instalacion/" class="md-nav__link">
+        2. Instalación
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          3. Apuntes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        3. Apuntes
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rutas" class="md-nav__link">
+    RUTAS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controlador" class="md-nav__link">
+    CONTROLADOR
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vista" class="md-nav__link">
+    VISTA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sesiones-globales" class="md-nav__link">
+    SESIONES GLOBALES
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mensajes-flash" class="md-nav__link">
+    MENSAJES FLASH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alert-sweet" class="md-nav__link">
+    ALERT SWEET
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bases-de-datos-orm" class="md-nav__link">
+    BASES DE DATOS - ORM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seeder-semillas" class="md-nav__link">
+    SEEDER (SEMILLAS)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consultar-datos" class="md-nav__link">
+    CONSULTAR DATOS
+  </a>
+  
+    <nav class="md-nav" aria-label="CONSULTAR DATOS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructor-de-consultas-query-builder" class="md-nav__link">
+    CONSTRUCTOR DE CONSULTAS (Query Builder)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consultas-sql-nativas" class="md-nav__link">
+    CONSULTAS SQL NATIVAS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eloquent" class="md-nav__link">
+    ELOQUENT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paginar" class="md-nav__link">
+    PAGINAR
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crud" class="md-nav__link">
+    CRUD
+  </a>
+  
+    <nav class="md-nav" aria-label="CRUD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#index-mostrar-datos" class="md-nav__link">
+    INDEX-MOSTRAR DATOS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insertar-store" class="md-nav__link">
+    INSERTAR -STORE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editar" class="md-nav__link">
+    EDITAR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#borrar" class="md-nav__link">
+    BORRAR
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relacion-uno-a-uno-1x1" class="md-nav__link">
+    RELACIÓN UNO A UNO (1X1)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relacion-uno-a-muchos-1xm" class="md-nav__link">
+    RELACIÓN UNO A MUCHOS (1XM)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relacion-de-muchos-a-muchos-nxm" class="md-nav__link">
+    RELACION DE MUCHOS A MUCHOS (NXM)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autentificacion-login-registro" class="md-nav__link">
+    AUTENTIFICACIÓN (LOGIN - REGISTRO)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-catch" class="md-nav__link">
+    TRY ... CATCH
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="paquetes/" class="md-nav__link">
+        4. Paquetes
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rutas" class="md-nav__link">
+    RUTAS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controlador" class="md-nav__link">
+    CONTROLADOR
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vista" class="md-nav__link">
+    VISTA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sesiones-globales" class="md-nav__link">
+    SESIONES GLOBALES
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mensajes-flash" class="md-nav__link">
+    MENSAJES FLASH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alert-sweet" class="md-nav__link">
+    ALERT SWEET
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bases-de-datos-orm" class="md-nav__link">
+    BASES DE DATOS - ORM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seeder-semillas" class="md-nav__link">
+    SEEDER (SEMILLAS)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consultar-datos" class="md-nav__link">
+    CONSULTAR DATOS
+  </a>
+  
+    <nav class="md-nav" aria-label="CONSULTAR DATOS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructor-de-consultas-query-builder" class="md-nav__link">
+    CONSTRUCTOR DE CONSULTAS (Query Builder)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consultas-sql-nativas" class="md-nav__link">
+    CONSULTAS SQL NATIVAS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eloquent" class="md-nav__link">
+    ELOQUENT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paginar" class="md-nav__link">
+    PAGINAR
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crud" class="md-nav__link">
+    CRUD
+  </a>
+  
+    <nav class="md-nav" aria-label="CRUD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#index-mostrar-datos" class="md-nav__link">
+    INDEX-MOSTRAR DATOS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insertar-store" class="md-nav__link">
+    INSERTAR -STORE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editar" class="md-nav__link">
+    EDITAR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#borrar" class="md-nav__link">
+    BORRAR
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relacion-uno-a-uno-1x1" class="md-nav__link">
+    RELACIÓN UNO A UNO (1X1)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relacion-uno-a-muchos-1xm" class="md-nav__link">
+    RELACIÓN UNO A MUCHOS (1XM)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relacion-de-muchos-a-muchos-nxm" class="md-nav__link">
+    RELACION DE MUCHOS A MUCHOS (NXM)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autentificacion-login-registro" class="md-nav__link">
+    AUTENTIFICACIÓN (LOGIN - REGISTRO)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-catch" class="md-nav__link">
+    TRY ... CATCH
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="apuntes-laravel">APUNTES LARAVEL</h1>
+<h2 id="rutas">RUTAS</h2>
+<p>Las rutas se situan en <strong><em>Mi-PROYECTO-&gt;ROUTES-&gt;WEB</em></strong></p>
+<pre><code>└── routes
+      └── web
+</code></pre>
+<p>Aquí podemos ver la primera ruta.</p>
+<pre><code class="language-php">Route::get('mundo', function () {
+    return 'Hello Clase 2 DAW';
+});
+</code></pre>
+<p>Le pasamos a la ruta un identificador que tendrá un valor por defecto y esa ruta tendrá un nombre dentro de la misma vista, asignamos valor por defecto</p>
+<pre><code class="language-php">Route::get('/show/{id?}',function($id=&quot;122&quot;){
+
+  return $id;
+
+})-&gt;name('show');
+</code></pre>
+<p>Otra forma de ruta y utilizando un pattern númerico (sólo pueden introducir números)</p>
+<pre><code class="language-php">Route::get('/par-o-impar-{numero}',function($numero){
+     return $numero;
+
+    //return redirect()-&gt;to('/show/3'); -&gt; te redirije a la ruta que le indicas
+
+    //return redirect()-&gt;route('show') -&gt; te redirije a la ruta que tiene el nombre asignado en el name.
+
+    //return redirect()-&gt;route('show',['id' =&gt; '222']) -&gt; en caso de pasarle algun parámetro
+} )-&gt;where(['numero' =&gt; '[0-9]+']);
+
+// de esta forma añadimos una expresión regular para que solo puedan introducir números
+</code></pre>
+<p><strong><em> Restricciones con Expresiones Regulares </em></strong></p>
+<pre><code class="language-php">Route::get('user/{name}', function ($name) {
+//
+})-&gt;where('name', '[A-Za-z]+');   
+
+//nomes poden passar lletres miníscules o Majúscules como mínim una volta
+</code></pre>
+<pre><code class="language-php">Route::get('user/{id}', function ($id) {
+//
+})-&gt;where('id', '[0-9]+');
+
+//com a mínim, a soles podem passar com a mínim un nombre.
+</code></pre>
+<pre><code class="language-php">Route::get('user/{id}/{name}', function ($id, $name) {
+//
+})-&gt;where(['id' =&gt; '[0-9]+', 'name' =&gt; '[a-z]+']);
+
+//le pasamos un array en caso de más de un elemento.
+</code></pre>
+<p>Ruta que nos lleva directamente a una vista e incluso pasarle un argumento.</p>
+<pre><code class="language-php">Route::view (directo a la vista)
+
+Route::view('/registro', 'registro');
+
+ //en el caso que sólo queramos enviar a una vista sin pasar por el controlador
+
+Route::view('/welcome', 'clase', ['nombre' =&gt; 'Julio']);
+</code></pre>
+<p>Especificamos que podemos usar GET y POST para una ruta</p>
+<pre><code class="language-php">//verbos HTTP múltiples
+Route::match(['get', 'post'], '/', function () {
+//
+});
+
+
+//verbos HTTP cualquiera
+Route::any('/', function () {
+//
+});
+</code></pre>
+<hr />
+<h2 id="controlador">CONTROLADOR</h2>
+<p><code>php artisan make:controller PeliculasController</code></p>
+<p>Creamos un controlador vacio, <strong>App-&gt;http-&gt;Controller-&gt;</strong></p>
+<pre><code>.
+└── App
+    └── http
+         └── Controller
+</code></pre>
+<pre><code class="language-php">//en route
+//añadir la ruta en web.php arriba del todo.
+
+use App\Http\Controllers\PeliculasController;
+
+.............
+
+Route::get('pelis', [PeliculasController::class, 'mostrar']);
+
+//en controlador
+public function index(){
+   echo &quot;hola Julio&quot;;
+}
+</code></pre>
+<h2 id="vista">VISTA</h2>
+<p>Podemos aprovechar herencia en las vistas, por ello, vamos a crear.</p>
+<p>También podemos crear una carpeta que contiene vistas "menú" y dentro las páginas, para acceder a ellos, habría que poner "menu.pagina"</p>
+<p><strong><em> Vista Padre PADRE.blade.php </em></strong></p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;head&gt;
+    &lt;title&gt;
+        @yield('titulo')
+    &lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#home&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#news&quot;&gt;News&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#contact&quot;&gt;Contact&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#about&quot;&gt;About&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+@yield('contenido')
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><strong><em> Vista Layout Hija hija.blade.php </em></strong></p>
+<pre><code class="language-python">@extends('padre')
+
+@section('titulo','Página Heredada')
+
+@section('contenido')
+    &lt;h1&gt;Página Hija&lt;/h1&gt;
+@endsection
+</code></pre>
+<h2 id="sesiones-globales">SESIONES GLOBALES</h2>
+<pre><code class="language-php">session(['nombre'=&gt;'Julio']); //otra forma de crear variables sesión
+
+$nombre= session('nombre');  
+
+session()-&gt;forget('nombre');  //Borra Julio
+
+session()-&gt;flush();           //borra todo tipo de variables sesión, flash...
+
+dd(session()-&gt;all())         //muestra todas las variables de sesión
+
+/*mostrar variables sesión en blade VISTA*/
+
+{{session('julio')}}
+
+</code></pre>
+<p>https://laravel.com/docs/9.x/session#main-content</p>
+<h2 id="mensajes-flash">MENSAJES FLASH</h2>
+<pre><code class="language-php">//cuando en una página queremos enviar un mensaje flahs podemos poner
+
+return back()-&gt;with('status','hemos recibido el mensaje'); //guardamos un mensaje flash
+
+//luego en la misma pagina (back) ponemos una condicion en blade si hay mensaje de sesion muestra sino formulario.
+ @if(session('status'))
+   {{session('status')}}
+@else
+   formulario
+@endif
+
+//como vamos a repetir este codigo en muchos lados, podemos ponerlo en un fichero partial (resources-views-partial) y luego en el codigo lo sustituimos por @include en el editar.blade.php
+</code></pre>
+<h2 id="alert-sweet">ALERT SWEET</h2>
+<p>https://sweetalert.js.org/guides/</p>
+<p><strong><em> VISTA </em></strong></p>
+<pre><code class="language-javascript">&lt;script src=&quot;https://unpkg.com/sweetalert/dist/sweetalert.min.js&quot;&gt;&lt;/script&gt;
+
+//ponerlo debajo del DOM en la vista
+&lt;script&gt;
+@if (session('success'))
+swal(&quot;Buen Trabajo!&quot;, &quot;{{ session('success') }}&quot;, &quot;success&quot;);
+@endif
+&lt;/script&gt;
+</code></pre>
+<p><strong><em> CONTROLADOR </em></strong></p>
+<pre><code class="language-php">//en el controlador 
+return back()-&gt;with('success','Hemos recibido el mensaje');
+</code></pre>
+<h2 id="bases-de-datos-orm">BASES DE DATOS - ORM</h2>
+<p>Si clicamos el comando <strong>php artisan</strong> nos dará un menú de todas las opciones disponibles. </p>
+<p>A nosotros nos interesa crear una base de datos empezaremos con una tabla, es recomendable primero crear la migracion que corresponde con la tabla en la base de datos <strong>articulos</strong> y a continuación crearemos el modelo que corresponde con la entidad <strong>Articulo</strong>. </p>
+<p>Es preferible crearlo en ese orden, también hay que tener cuidado a la hora de crear la migración en plural y la entidad en singular.</p>
+<p><code>php artisan make:migration create_articulos_table --create="articulos"</code></p>
+<pre><code class="language-php">//Tabla articulos
+ Schema::create('articulos', function (Blueprint $table) {
+            $table-&gt;increments('id')-&gt;unsigned();
+            $table-&gt;text('titulo');
+            $table-&gt;mediumText('descripcion');
+            $table-&gt;timestamps();
+          });
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">IMPORTANTE -  TIPOS DE COLUMNAS!</p>
+<p>https://laravel.com/docs/9.x/migrations</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">CUANDO DA ERROR EN LA MIGRACION NO ENCUENTRA DRIVERS</p>
+<p>https://alphaparticle.com/blog/solved-laravel-sail-could-not-find-driver-error/</p>
+<p>https://stackoverflow.com/questions/70923053/laravel-sail-could-not-find-driver-sql-show-full-tables-where-table-type-b</p>
+</div>
+<p><code>php artisan make:model Articulo</code></p>
+<pre><code class="language-php">//Modelo Articulo
+class Articulo extends Model
+{
+    protected $table = 'articulos';  //hacemos referencia a la tabla artículos
+    protected $fillable = ['titulo', 'descripcion'];   
+       //fillable para proteger los campos que desea que permitan la actualización a la hora de insertar en la base de datos por asignación masiva
+}
+</code></pre>
+<h2 id="seeder-semillas">SEEDER (SEMILLAS)</h2>
+<p><strong><em> SEEDER normal </em></strong></p>
+<ol>
+<li>
+<p>Ejecutamos en terminal php artisan make:seeder NombreSeeder</p>
+</li>
+<li>
+<p>podemos ver que dentro de database-&gt;seeds se genera la nueva semilla e introducimos los siguientes datos.</p>
+</li>
+</ol>
+<pre><code class="language-php">//añadimos en la clase NombreSeeder
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+
+.....................
+
+for ($i = 0; $i &lt; 10; $i++) {
+    DB::table('articulos')-&gt;insert([
+   'titulo' =&gt; Str::random(10),
+   'descripcion' =&gt; Str::random(10).'@gmail.com',
+   'created_at' =&gt; date('Y-m-d'),
+   'updated_at' =&gt; date('Y-m-d')]);
+}
+</code></pre>
+<ol>
+<li>luego en la clase DataBaseSeeder (otro fichero que ya está creado) activamos dentro de la clase </li>
+</ol>
+<p><code>$this-&gt;call([NombreSeeder::class]);</code></p>
+<pre><code class="language-php">
+public function run()
+{
+
+$this-&gt;call([
+        PeliculasSeeder::class,
+                   ]);
+}
+</code></pre>
+<ol>
+<li>Para generar los datos insertarmos en terminal</li>
+</ol>
+<p><code>./vendor/bin/sail php artisan db:seed</code></p>
+<p>https://laravel.com/docs/9.x/seeding#writing-seeders</p>
+<h2 id="consultar-datos">CONSULTAR DATOS</h2>
+<h3 id="constructor-de-consultas-query-builder">CONSTRUCTOR DE CONSULTAS (Query Builder)</h3>
+<p>Cuando estamos usando conexiones múltiple</p>
+<pre><code class="language-php">//añadimos 
+use Illuminate\Support\Facades\DB;
+....
+
+//obtenemos todos los usuarios
+$datos = DB::table('articulos')-&gt;get();
+
+foreach ($datos as $dato)
+{
+    echo $dato-&gt;descripcion;
+}
+
+//Más ejemplos de consultas
+$dato = DB::table('articulos')-&gt;first();
+
+$dato = DB::table('articulos')-&gt;where('name', 'julio')-&gt;get();
+
+$dato = DB::table('articulos')-&gt;where('edad', '&gt;', 100)-&gt;get();
+
+$dato = DB::table('articulos')-&gt;where('estado', '&lt;&gt;', 'active')-&gt;get();
+
+$dato = DB::table('articulos')-&gt;where('name', 'like', 'J%')-&gt;get();
+
+
+//insertar
+DB::table('articulos')-&gt;insert(
+        ['titulo'=&gt;&quot;pepe&quot;,'descripcion'=&gt;&quot;nuevadescripcion&quot;]
+    );
+
+//update
+DB::table('datos')
+              -&gt;where('id', 1)
+              -&gt;update(['nombre' =&gt; 'Estefania']);
+
+//delete
+DB::table('datos')-&gt;delete();
+DB::table('datos')-&gt;where('votes', '&gt;', 100)-&gt;delete();
+</code></pre>
+<p>https://laravel.com/docs/9.x/queries#running-database-queries</p>
+<h3 id="consultas-sql-nativas">CONSULTAS SQL NATIVAS</h3>
+<pre><code class="language-php">//seleccionar
+$results = DB::select('select * from articulos where id = :id', ['id' =&gt; 1]);
+
+//insertar en la Base users
+DB::insert('insert into articulos (titulo, descripcion) values (?, ?)', [1, 'Dayle']);
+
+//actualizar
+$affected = DB::update('update users set votes = 100 where name = ?', ['John']);
+
+//borrar
+$deleted = DB::delete('delete from users');
+
+//Ejecutando una instrucción general que no devuelve ningún valor
+DB::statement('drop table users');
+</code></pre>
+<h3 id="eloquent">ELOQUENT</h3>
+<pre><code class="language-php">$articulos=Articulo::all();  //$escritores=Escritor::get();
+
+$articulosOrdenados=Articulo::orderBy('descripcion','DESC')-&gt;get();
+
+$articulo= Articulo::findOrFail(1);
+
+$articulo= Articulo::where('edad', '&gt;', 100)-&gt;firstOrFail();
+
+$articulo= Articulo::whereEdad(100)-&gt;get();  //es más eficiente especificar las columnas Escritor::select('id','name')-&gt;whereEdad(100)-&gt;get()
+
+$ArticuloUlti=Articulo::latest('created_at')-&gt;get();   //muestra los últimos que se han añadido
+
+
+//insertar Objeto en BD
+        $articulo = new Articulo();
+        $articulo-&gt;titulo = 'Mi libro Laravel';
+        $articulo-&gt;descripcion = 'Libro donde se habla de Laravel';
+        $articulo-&gt;save();
+
+//actualizar
+        $articulo = Articulo::find(1);  //$escritor = App/Escritor::find(1);
+        $articulo-&gt;titulo = 'Nuevo Laravel';     //$request-&gt;name;
+        $articulo-&gt;save();
+
+//borrar
+        $articulo= Articulo::find(1);
+        $articulo-&gt;delete();
+</code></pre>
+<ul>
+<li>
+<p><code>all()</code> devuelve todos los elementos de una tabla.</p>
+</li>
+<li>
+<p><code>find($id)</code> coge una id y devuelve un sólo modelo. Si no existe un modelo coincidente, devuelve null.</p>
+</li>
+<li>
+<p><code>findOrFail($id)</code> toma una idy devuelve un sólo modelo. Si no existe un modelo coincidente, arroja un error1 404.</p>
+</li>
+<li>
+<p><code>first()</code> devuelve el primer registro encontrado en la base de datos. Si no existe un modelo coincidente, devuelve null.</p>
+</li>
+<li>
+<p><code>firstOrFail()</code> devuelve el primer registro encontrado en la base de datos. Si no existe un modelo coincidente, arroja un error1 404.</p>
+</li>
+<li>
+<p><code>get()</code> devuelve una colección de modelos que coinciden con la consulta.</p>
+</li>
+<li>
+<p><code>findOrCreate()</code> en el caso que no existe en la BD, lo crea.</p>
+</li>
+</ul>
+<pre><code class="language-php">$dato=Articulo::firstOrCreate(['titulo'=&gt;'Principito','descripcion'=&gt;'Mi primer articulo']);
+</code></pre>
+<p>https://laravel-news.com/firstornew-firstorcreate-firstor-updateorcreate</p>
+<ul>
+<li>
+<p><code>toArray()</code> convierte el modelo / colección en una matriz PHP simple.</p>
+</li>
+<li>
+<p><code>Pluck()</code> en caso de obtener una colección y filtrar la parte que nos interesa.</p>
+</li>
+</ul>
+<pre><code class="language-php">$users = User::all(); 
+// Devuelve una colección de usuarios, por ejemplo, ['name' =&gt; 'John', 'age' =&gt; 55],['name' =&gt; 'Melissa', 'age' =&gt; 18],['name' =&gt; 'Bob', 'age' =&gt; 43]
+
+$usernames = $users-&gt;pluck('name'); 
+// tenemos una colección de ['John', 'Melissa', 'Bob', 'Sara']
+</code></pre>
+<p><strong><em> ¿Cúal forma es mejor o más óptima? ¿SQL NATIVE o QUERY BUILDER o ELOQUENT?  </em></strong></p>
+<p>https://www.laraveltip.com/que-es-mejor-eloquent-query-builder-o-sql/</p>
+<h2 id="paginar">PAGINAR</h2>
+<p><strong><em> en el CONTROLADOR de index </em></strong></p>
+<pre><code class="language-php">  $datos=Dato::latest()-&gt;paginate(3);
+</code></pre>
+<p><strong><em> en la VISTA debajo de forelse </em></strong></p>
+<pre><code class="language-php">//en el momento que insertamos datos dentro de la tabla y queremos mostrar los datos de forma más humana.
+&lt;ul&gt;
+  @forelse ($datos as $item)
+
+    &lt;li&gt;  {{$item-&gt;title}}  {{$item-&gt;created_at-&gt;diffForHumans() }} 
+     &lt;/li&gt;  
+
+  @empty
+     &lt;li&gt;NO HAY NADA &lt;/li&gt;
+  @endforelse
+&lt;/ul&gt;
+
+{{$datos-&gt;links()}}  //DEBAJO DEL FORELSE
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">¿Qué ocurre si vemos las flechas enormes?</p>
+<p>https://stackoverflow.com/questions/64002774/laravel-pagination-is-showing-weird-arrows</p>
+</div>
+<h2 id="crud">CRUD</h2>
+<p>Creas la tabla</p>
+<p><code>php artisan make:migration create_blogs_table --create=blogs</code></p>
+<p>Luego en la migración creas los campos para la base de datos</p>
+<pre><code class="language-php">Schema::create('blogs', function (Blueprint $table) {
+$table-&gt;bigIncrements('id');
+$table-&gt;string('blog_title');
+$table-&gt;text('blog_content');
+$table-&gt;timestamps();
+});
+</code></pre>
+<p>Para generar las rutas podemos hacer dos cosas:</p>
+<ol>
+<li>Generarlas automáticamente con el nombre de las rutas en inglés.</li>
+</ol>
+<p>Generas las rutas insertando el fichero Web</p>
+<pre><code class="language-php">use App\Http\Controllers\PhotoController;
+..............
+Route::resource('photos', PhotoController::class);
+</code></pre>
+<p>Para listar las rutas, en terminal 
+<code>php artisan route:list -v</code></p>
+<p><strong><em> Creamos Controlador  </em></strong></p>
+<p><code>php artisan make:controller photoController --resource</code></p>
+<p>1.index()</p>
+<p>2.create()</p>
+<p>3.store()</p>
+<p>4.show()</p>
+<p>5.edit()</p>
+<p>6.update()</p>
+<p>7.destroy()</p>
+<hr />
+<ol>
+<li>Diseñar nuestras rutas y controlador en castellano uno a uno</li>
+</ol>
+<pre><code class="language-php">//Diseñamos nuestras rutas en Web
+use App\Http\Controllers\DatosController;
+
+..............
+
+Route::get('/index', [DatosController::class, 'index'])-&gt;name('index');
+Route::post('/almacenar', [DatosController::class, 'almacenar'])-&gt;name('almacenar');
+Route::get('/editar/{id}', [DatosController::class,'editar'])-&gt;name('editar');
+Route::patch('/actualizar/{id}', [DatosController::class,'actualizar'])-&gt;name('actualizar');
+Route::delete('/borrar/{id}', [DatosController::class,'borrar'])-&gt;name('borrar');
+Route::view('/insertar','insertar')-&gt;name('insertar');
+</code></pre>
+<p>Diseñamos la migración y el modelo, en caso de necesitarlo</p>
+<p><code>php artisan make:migration create_datos_table --create=datos</code></p>
+<p>Creamos la migracion que es la tabla en la base de datos "datos"</p>
+<pre><code class="language-php">Schema::create('datos', function (Blueprint $table) {
+            $table-&gt;bigIncrements('id');
+            $table-&gt;string('nombre');
+            $table-&gt;text('descripcion');
+            $table-&gt;timestamps();
+        });
+</code></pre>
+<p>Creamos el modelo "Dato" que es la Entidad que vamos a trabajar y dentro ponemos los datos que queremos proteger.</p>
+<p><code>php artisan make:model Dato</code></p>
+<pre><code class="language-php">protected $table= 'datos';
+protected $fillable = ['nombre', 'descripcion']; //¿Qué atributos deberías incluir en dicho array?
+
+//Aquellos que consideres sensibles y que no deberían modificarse o asignarse en cierta forma, el más típico es el id, el cual normalmente no se modifica ni se asigna de forma manual.
+}
+</code></pre>
+<h3 id="index-mostrar-datos">INDEX-MOSTRAR DATOS</h3>
+<p><strong><em> en el CONTROLADOR </em></strong></p>
+<pre><code class="language-php"> public function index(){
+
+    $datos=Dato::all();
+
+    return view('index',['datos'=&gt;$datos]);  //view('index',compact('datos');
+   } 
+</code></pre>
+<p><strong><em> en la VISTA </em></strong></p>
+<pre><code class="language-php">
+@forelse ($datos as $item)
+&lt;li&gt; 
+{{$item-&gt;nombre}} {{$item-&gt;descripcion}} 
+     &lt;a href=&quot;{{ route('editar', $item-&gt;id)}}&quot; &gt;Edit&lt;/a&gt; &lt;!--añadimos también EDITAR--&gt;
+     &lt;form action=&quot;{{ route('borrar', $item-&gt;id)}}&quot; method=&quot;post&quot;&gt; &lt;!--añadimos también BORRAR--&gt;
+        @csrf
+        @method('DELETE')
+        &lt;button type=&quot;submit&quot;&gt;borrar&lt;/button&gt;
+    &lt;/form&gt;
+&lt;/li&gt;
+@empty
+   &lt;li&gt;NO HAY NADA &lt;/li&gt;
+@endforelse
+</code></pre>
+<h3 id="insertar-store">INSERTAR -STORE</h3>
+<p><strong><em> En el CONTROLADOR </em></strong></p>
+<pre><code class="language-php"> public function almacenar(Request $request){
+
+//LA MEJOR FORMA DE INSERTAR DATOS ya que se hace la comprobación de los campos obligatorios para que no hagan inyeccion y luego inserta.
+    $datos=request()-&gt;validate([
+        'nombre'=&gt;'required|max:25', 
+        'descripcion'=&gt;'required']
+    );
+
+    Dato::create($datos);
+
+    return redirect()-&gt;route('index');
+    //return back(); //te redirecciona a la misma página
+   } 
+</code></pre>
+<p><strong><em> En la VISTA </em></strong></p>
+<pre><code class="language-php">@if ($errors-&gt;any())  //esto muestra todos los errores seguidos
+    &lt;ul&gt;
+        @foreach ($errors-&gt;all() as $error)
+        &lt;li&gt;{{ $error }}&lt;/li&gt;
+        @endforeach
+    &lt;/ul&gt;
+&lt;br/&gt;
+@endif
+
+&lt;form method=&quot;post&quot; action=&quot;{{ route('almacenar') }}&quot;&gt; 
+
+        @csrf
+        &lt;label for=&quot;name&quot;&gt;Nombre:&lt;/label&gt;
+        &lt;input type=&quot;text&quot; name=&quot;nombre&quot; value=&quot;{{old('nombre')}}&quot;/&gt;  
+        &lt;!--ponemos old porque en el caso que carguemos el formulario y diera error habría que volver a introducir todos los campos, así recuerda o guarda los campos que están bien--&gt;
+     {!! $errors-&gt;first('name', '&lt;small&gt;:message&lt;/small&gt;&lt;br&gt;' )!!}  &lt;!-- así especificamos los errores debajo--&gt;
+
+        &lt;label for=&quot;price&quot;&gt;Descripcion:&lt;/label&gt;
+        &lt;input type=&quot;text&quot; name=&quot;descripcion&quot; value=&quot;{{old('descripcion')}}&quot;/&gt;
+     {!! $errors-&gt;first('descripcion', '&lt;small&gt;:message&lt;/small&gt;&lt;br&gt;' )!!}  
+
+
+    &lt;button type=&quot;submit&quot;&gt;Crear&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+<h3 id="editar">EDITAR</h3>
+<p><strong><em> EN EL CONTROLADOR </em></strong></p>
+<pre><code class="language-php">public function editar($id){
+
+    $dato = Dato::findOrFail($id);  //como no está el dato si nos equivocamos de id nos muestra la página de error 404, podemos crear uno personalizado en la view-&gt;errors-&gt;404.blade.php , creamos carpeta &quot;errors&quot;
+    return view('editar', compact('dato'));
+   } 
+</code></pre>
+<p><strong><em> EN LA VISTA para EDITAR </em></strong></p>
+<pre><code class="language-php">@if ($errors-&gt;any())
+        &lt;div class=&quot;alert alert-danger&quot;&gt;
+            &lt;strong&gt;Whoops!&lt;/strong&gt; There were some problems with your input.&lt;br&gt;&lt;br&gt;
+            &lt;ul&gt;
+                @foreach ($errors-&gt;all() as $error)
+                    &lt;li&gt;{{ $error }}&lt;/li&gt;
+                @endforeach
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    @endif
+
+&lt;form method=&quot;post&quot; action=&quot;{{ route('actualizar', $dato) }}&quot;&gt;  
+//No es necesario especificar el Id ya que la nueva versión laravel ya busca dentro del Objeto
+          &lt;div&gt; 
+              @method('PATCH')
+              @csrf
+
+              &lt;label for=&quot;name&quot;&gt;nombre:&lt;/label&gt;
+              &lt;input type=&quot;text&quot;  name=&quot;nombre&quot; value=&quot;{{ $dato-&gt;nombre }}&quot;/&gt;
+          &lt;/div&gt;
+          &lt;div &gt;
+              &lt;label for=&quot;descripcion&quot;&gt;descripcion&lt;/label&gt;
+              &lt;input type=&quot;text&quot;  name=&quot;descripcion&quot; value=&quot;{{ $dato-&gt;descripcion }}&quot;/&gt;
+          &lt;/div&gt;
+
+          &lt;button type=&quot;submit&quot; &gt;Actualizar&lt;/button&gt;
+      &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p><strong><em>  En el CONTROLADOR para ALMACENAR DATOS ya MODIFICADOS </em></strong></p>
+<pre><code class="language-php">public function actualizar(Request $request)
+    {
+        $validacion = $request-&gt;validate([
+            'nombre' =&gt; 'required|min:1|max:10',
+            'descripcion' =&gt; 'required',
+        ]);
+
+        Dato::whereId($request-&gt;id)-&gt;update($validacion); //otra opción
+
+        /*  //otra forma de almacenar
+         $datos = Dato::find($id);   //podremos utilizar findOrFail($id) para que en caso de no encontrar no falle
+         $datos-&gt;nombre = $validacion['nombre'];
+         $datos-&gt;descripcion = $validacion['descripcion'];
+         $datos-&gt;update();*/
+
+        return redirect()-&gt;route('index');
+}
+
+// formar de recuperar datos de un formulario. $request-&gt;get('nombre'); $request-&gt;nombre;  $request-&gt;input('nombre');
+</code></pre>
+<h3 id="borrar">BORRAR</h3>
+<p><strong><em> En el controlador Borrar </em></strong></p>
+<pre><code class="language-php">    public function borrar($id){
+
+        $dato = Dato::findOrFail($id);
+        $dato-&gt;delete();
+        return redirect()-&gt;route('index');
+       } 
+</code></pre>
+<h2 id="relacion-uno-a-uno-1x1">RELACIÓN UNO A UNO (1X1)</h2>
+<p>Crearemos la tabla Usuario y Teléfono. El modelo de User puede estar asociado con un modelo de teléfono. Para definir esta relación, colocaremos un método de phone en el modelo User. El método de phone debe llamar al método hasOne y devolver su resultado.</p>
+<pre><code class="language-php">//tabla users 
+Schema::create('users', function (Blueprint $table) {
+
+ $table-&gt;increments('id');
+
+ $table-&gt;string('name');
+
+ $table-&gt;string('email')-&gt;unique();
+
+ $table-&gt;timestamps();
+
+ });
+
+</code></pre>
+<pre><code class="language-php">
+//Crear Tabla de Migración de Teléfonos con Clave Foránea
+Schema::create('phones', function (Blueprint $table) {
+
+ $table-&gt;increments('id');
+
+ $table-&gt;integer('user_id')-&gt;unsigned();
+
+ $table-&gt;string('phone_no');
+
+ $table-&gt;timestamps();
+
+ $table-&gt;foreign('user_id')-&gt;references('id')-&gt;on('users')-&gt;onDelete('cascade'); 
+
+});
+
+</code></pre>
+<p><strong><em>  Modelo de usuario: </em></strong></p>
+<pre><code class="language-php">
+ namespace App\Models;
+
+ use Illuminate\Database\Eloquent\Model;
+
+ class User extends Model 
+{
+ /**
+ * Get the phone associated with the user.
+ */
+ public function phone()
+ {
+ return $this-&gt;hasOne(Phone::class);
+ } 
+}
+
+</code></pre>
+<p><strong><em> Modelo de teléfono </em></strong></p>
+<p>Podemos acceder al modelo de Phone desde nuestro modelo de User. A continuación, definamos una relación en el modelo Phone que nos permitirá acceder al usuario propietario del teléfono. Podemos definir el inverso de una relación hasOne usando el método belongsTo.</p>
+<pre><code class="language-php">
+namespace App\Models; 
+
+use Illuminate\Database\Eloquent\Model; 
+
+class Phone extends Model 
+{
+ /**
+ * Get the user that owns the phone.
+ */
+ public function user()
+ {
+ return $this-&gt;belongsTo(User::class);
+ //return $this-&gt;belongsTo(User::class, 'foreign_key');   
+//Si la clave externa en el modelo de Phone no es user_id, puede pasar un nombre de clave personalizado
+ } 
+}
+
+</code></pre>
+<p><strong><em> Recuperar registros usando el modelo: </em></strong></p>
+<p>Una vez que se define la relación, podemos recuperar el registro relacionado usando las propiedades dinámicas de Eloquent. Entonces, aquí podemos usar el modelo de usuario con función de teléfono.</p>
+<pre><code class="language-php">
+$phone = User::find(1)-&gt;phone;
+
+$user = Phone::find(1)-&gt;user;
+
+</code></pre>
+<p><strong><em>  Crear registros usando el modelo </em></strong></p>
+<pre><code class="language-php">$user = User::find(1);
+$phone = new Phone; 
+$phone-&gt;phone_no = '9876543210';
+$user-&gt;phone()-&gt;save($phone);
+</code></pre>
+<pre><code class="language-php">$phone = Phone::find(1);
+$user = User::find(1);
+$phone-&gt;user()-&gt;associate($user)-&gt;save();
+</code></pre>
+<h2 id="relacion-uno-a-muchos-1xm">RELACIÓN UNO A MUCHOS (1XM)</h2>
+<p>Una categoria tiene muchos artículos. Creamos primero las migraciones (bases datos) y luego el modelo (Entidades), también tenemos la opción de crear el modelo y luego automaticamente las migraciones pero hay que tener cuidado ya que genera el nombre de las tablas de la migración en inglés.</p>
+<p><code>php artisan make:migration create_categorias_table --create="categorias"</code></p>
+<p><code>php artisan make:migration create_articulos_table --create="articulos"</code></p>
+<p><strong><em> Tablas migraciones </em></strong></p>
+<pre><code class="language-php">//tabla Categories
+  Schema::create('categorias', function (Blueprint $table) {
+            $table-&gt;increments('id')-&gt;unsigned();
+            $table-&gt;text('nombre');
+            $table-&gt;mediumText('masInfo');
+            $table-&gt;timestamps();
+        });
+
+//tabla articulos
+
+    Schema::create('articulos', function (Blueprint $table) {
+            $table-&gt;increments('id')-&gt;unsigned();
+            $table-&gt;integer('categoria_id')-&gt;unsigned();  //si hubieramos puesto categorias_id tambien hubiera cogido la relación
+            $table-&gt;text('titulo');
+            $table-&gt;mediumText('descripcion');
+            $table-&gt;timestamps();
+            //relaciones
+            $table-&gt;foreign('categoria_id')-&gt;references('id')-&gt;on('categorias')-&gt;onDelete('cascade')-&gt;onUpdate('cascade');
+            //category_id hace referencia a la tabla categories y el borrado y la actualización es en cascada.
+        });
+</code></pre>
+<p><strong><em> Creamos los modelos </em></strong></p>
+<p><code>php artisan make:model Categoria</code></p>
+<pre><code class="language-php">//Modelo Categoria
+class Categoria extends Model
+{
+    protected $table = 'categorias';
+
+    //protected $primaryKey = 'categoria_id';  
+    //Por defecto id es la clave primaria, podemos definir un campo diferente con la propiedad primaryKey
+
+    //public $timestamps = true;  
+    //especificamos si queremos crear created_at y updated_at en la base de datos
+    protected $fillable = ['nombre', 'masInfo'];
+
+    public function articulos()
+    {
+        return $this-&gt;hasMany('App\Models\Articulo');
+    }
+}
+
+
+//Modelo Artículos
+
+class Articulo extends Model
+{
+    protected $table = 'articulos';
+    protected $fillable = ['titulo', 'descripcion'];
+
+    public function categoria()
+    {
+        return $this-&gt;belongsTo('App\Models\Categoria');
+    }
+}
+</code></pre>
+<p><strong><em> En el controlador </em></strong></p>
+<pre><code class="language-php">public function insertar()
+    {
+        $categoria = Categoria::find(3);   //buscamos que ya tenemos almacenada o la creamos.
+
+        $articulo = new Articulo(['titulo' =&gt; 'Pedazo Artículo', 'descripcion' =&gt; 'toda la descripción']);  //creamos artículo.
+        $categoria-&gt;articulos()-&gt;save($articulo);  //guardamos dentro de categoria un artículo.
+
+       //en caso que tengamos varios artículos
+       /* $categoria-&gt;articulos()-&gt;saveMany([
+            new Articulo(['titulo' =&gt; 'A new comment.', 'descripcion' =&gt; 'hola']),
+            new Articulo(['titulo' =&gt; 'Another comment.',  'descripcion' =&gt; 'hola']),
+        ]);*/
+
+    }
+</code></pre>
+<p>http://documentacion-laravel.com/eloquent-relationships.html#insertando-y-actualizando-modelos-relacionados</p>
+<p><strong><em> PROBLEMA N+1 - LAZY LOADING </em></strong></p>
+<p>Muestra el nombre de todas las categorias de todos los artículos. Una consulta para obtener todos los artículos en la tabla, después otra consulta para cada articulos para obtener quien es el autor</p>
+<pre><code class="language-php"> $articulos = Articulo::all();
+
+ foreach ($articulos as $articulo) {
+     dump($articulo-&gt;categoria-&gt;nombre);
+   }
+</code></pre>
+<p><strong><em>  SOLUCIÓN - EAGER LOADING  </em></strong></p>
+<p>Al usar la carga previa o carga impaciente (Eager Loading) para reducir esta operación a solo 2 consultas</p>
+<pre><code class="language-php">$articulos = Articulo::with('categoria')-&gt;get();
+
+ foreach ($articulos as $articulo) {
+           echo $articulo-&gt;categoria-&gt;nombre .&quot;&lt;/br&gt;&quot;;
+        }
+</code></pre>
+<p>https://styde.net/lazy-loading-vs-eager-loading/</p>
+<p><strong><em> BORRADO </em></strong></p>
+<p>Borra la categoria 9 y todos los articulos relacionados (cascada)</p>
+<pre><code class="language-php">$Categoria = Categoria::find(9);
+$Categoria-&gt;delete();
+
+//borra artículo
+$articulo = Articulo::find(2);        
+$articulo-&gt;delete();
+</code></pre>
+<h2 id="relacion-de-muchos-a-muchos-nxm">RELACION DE MUCHOS A MUCHOS (NXM)</h2>
+<p>Un post puede tener muchas Etiquetas y una etiqueta puede tener muchos Posts, por tanto habrá que crear una tabla auxiliar.</p>
+<p><code>php artisan make:migration create_etiquetas_table --create="etiquetas"</code></p>
+<p><code>php artisan make:migration create_posts_table --create="posts"</code></p>
+<p><code>php artisan make:migration create_etiqueta_post_table --create="etiqueta_post"</code></p>
+<p>Dentro de la tabla de migraciones</p>
+<p><strong><em> ETIQUETAS </em></strong></p>
+<pre><code class="language-php">Schema::create('etiquetas', function (Blueprint $table) {
+            $table-&gt;increments('id');
+
+            $table-&gt;string('nombre',128);
+            $table-&gt;string('slug',128);
+
+            $table-&gt;timestamps();
+        });
+</code></pre>
+<p><strong><em> POSTS </em></strong></p>
+<pre><code class="language-php">   Schema::create('posts', function (Blueprint $table) {
+            $table-&gt;increments('id');
+
+             $table-&gt;string('nombre',128)-&gt;unique();
+             $table-&gt;string('slug',128);
+             $table-&gt;text('cuerpo');
+             $table-&gt;enum('status',['PUBLISHED','DRAFT'])-&gt;default('DRAFT');
+             $table-&gt;string('file', 128)-&gt;nullable();
+
+             $table-&gt;timestamps();
+
+        });
+</code></pre>
+<p><strong><em> ETIQUETA_POST </em></strong></p>
+<pre><code class="language-php"> Schema::create('etiqueta_post', function (Blueprint $table) {
+            $table-&gt;increments('id');
+
+            $table-&gt;integer('post_id')-&gt;unsigned();
+            $table-&gt;integer('etiqueta_id')-&gt;unsigned();
+
+            $table-&gt;timestamps();
+
+             //relaciones
+             $table-&gt;foreign('post_id')-&gt;references('id')-&gt;on('posts')-&gt;onDelete('cascade')-&gt;onUpdate('cascade');
+             $table-&gt;foreign('etiqueta_id')-&gt;references('id')-&gt;on('etiquetas')-&gt;onDelete('cascade')-&gt;onUpdate('cascade');
+        });
+</code></pre>
+<p>Dentro de los modelos</p>
+<pre><code class="language-php">//Modelo POST
+class Post extends Model
+{
+    protected $table = 'posts';
+    //protected $primary_key = 'categoria_id';
+    protected $fillable = ['nombre', 'slug', 'cuerpo', 'status' ,'file'];
+
+    public function etiquetas()
+    {
+        return $this-&gt;belongsToMany('App\Models\Etiqueta');
+    }
+}
+
+//Modelo ETIQUETA
+
+class Etiqueta extends Model
+{
+    protected $table = 'etiquetas';
+    //protected $primary_key = 'categoria_id';
+    protected $fillable = ['nombre', 'slug'];
+
+    public function posts()
+    {
+        return $this-&gt;belongsToMany('App\Models\Post');
+    }
+}
+
+//INSERTAR Tabla intermedia
+
+public function insertarTablaIntermedia(){
+        $etiqueta=Etiqueta::find(1);
+        $post = Post::find(2);
+        $post-&gt;etiquetas()-&gt;attach($etiqueta);
+       }
+</code></pre>
+<p><strong><em> OBTENER DATOS DE LA otra TABLA RELACIONADA. </em></strong></p>
+<pre><code class="language-php">return Post::find(1)-&gt;etiquetas()-&gt;get();  
+//del Post(1) obtiene todas las etiquetas relacionadas
+
+return Post::find(1)-&gt;etiquetas()-&gt;where('nombre','futbol')-&gt;get();  
+//del Post(1) obtiene la etiqueta relacionada que tiene nombre = &quot;futbol&quot;
+
+</code></pre>
+<p><strong><em> CONSULTAS EN MULTIPLES TABLAS </em></strong></p>
+<p>Ejemplo:</p>
+<p>Tablas: a, b, c, d, e, f Quiero traer los datos de todas las tablas relacionadas, los datos de a, b, c, d,e,f. A está relacionado con B (1,n) B con C (1,n) C con D (1,n) D con E (1,n) E con F (1,n) Solución:</p>
+<p>https://es.stackoverflow.com/questions/173727/consultas-en-m%C3%BAltiples-tablas-con-laravel-5-5</p>
+<h2 id="autentificacion-login-registro">AUTENTIFICACIÓN (LOGIN - REGISTRO)</h2>
+<p>https://github.com/laravel/ui</p>
+<ol>
+<li>Primero Instalamos (copiamos las rutas de web ya que se borran )</li>
+</ol>
+<p><code>./vendor/bin/sail composer require laravel/ui</code></p>
+<ol>
+<li>
+<p><code>php artisan ui bootstrap --auth</code></p>
+</li>
+<li>
+<p><code>npm install</code></p>
+</li>
+<li>
+<p><code>npm run dev</code></p>
+</li>
+<li>
+<p>Después si accedemos dentro routes-&gt;Web podemos ver que se ha creado <code>Auth::routes()</code>;</p>
+</li>
+<li>
+<p>Para cambiar la redirección después de Logearnos, tendremos que ir dentro <strong><em>app-&gt;http-&gt;Controller-&gt;Auth</em></strong> cambiamos las rutas de register y login cambiando ruta a /</p>
+</li>
+<li>
+<p>Quitamos la ruta <strong>/home</strong> dentro de las rutas en web</p>
+</li>
+</ol>
+<p><strong><em> MUESTRA USUARIO BLADE </em></strong></p>
+<pre><code class="language-python">@auth    &lt;!--sirve para mostrar en caso de estar autentificado, estar logeado--&gt;
+{{auth()-&gt;user()-&gt;name}}
+@endauth
+
+&lt;!--tambien cambiar la ruta de middleware en caso de estar autentificado y 
+volver hacer login peta y te manda a home por tanto cambiar a raiz.--&gt;
+
+@if(auth()) &lt;!--si el usuario está autentificado--&gt;
+
+@endif
+</code></pre>
+<p><strong><em> SABER SI ESTÁ LOGEADO EN EL CONTROLADOR </em></strong></p>
+<pre><code class="language-php">use Illuminate\Support\Facades\Auth;
+
+if(Auth::check()){ 
+ return &quot;estas logeado&quot;;
+}else { 
+ return &quot;no estas logeado&quot;;
+} 
+
+// Obtiene el objeto del Usuario Autenticado
+$user = Auth::user();
+$user-&gt;name;
+</code></pre>
+<p><strong><em> SECURIZAR </em></strong></p>
+<p>También podemos indicarlo directamente en el constructor de un controlador </p>
+<pre><code class="language-php">public function __construct()
+{
+$this-&gt;middleware('auth');
+}
+</code></pre>
+<p>Otra forma es indicándolo en la ruta para protegerla </p>
+<pre><code class="language-php">Route::get('/resultado', 'PruebasController@ejemplo')-&gt;middleware('auth);
+</code></pre>
+<p><strong><em> LOGOUT </em></strong></p>
+<pre><code class="language-php">@guest 
+&lt;a href=&quot;{{route('login')}}&quot;&gt;Login&lt;/a&gt;
+@else   
+&lt;a href=&quot;{{ route('logout') }}&quot; onclick=&quot;event.preventDefault(); document.getElementById('logout-form').submit();&quot;&gt; Logout &lt;/a&gt;
+
+  &lt;form id=&quot;logout-form&quot; action=&quot;{{ route('logout') }}&quot; method=&quot;POST&quot; style=&quot;display: none;&quot;&gt;
+     @csrf
+  &lt;/form&gt;
+@endguest
+</code></pre>
+<p><strong><em> DESHABILITAR REGISTRO </em></strong></p>
+<p>vamos a Web y modificamos ruta</p>
+<pre><code class="language-php">Auth::routes(['register'=&gt;false]);
+</code></pre>
+<p><strong><em>  BLOQUEAR USUARIO, INTENTOS FALLIDOS </em></strong></p>
+<p>En el caso que querramos bloquear al usuario por intentos de ingresos fallidos y penalizar el tiempo a la hora de volver autenficarte,
+bastará con añadir el controlador por defecto  <strong><em>app-&gt;http-&gt;Controller-&gt;auth-&gt; LoginController</em></strong></p>
+<pre><code class="language-php">class LoginController extends Controller
+{
+
+    use AuthenticatesUsers;
+
+    public $maxAttempts = 2;   //número máximo de intentos
+    public $decayMinutes = 2;  //tiempo que durará el bloqueo
+</code></pre>
+<h2 id="try-catch">TRY ... CATCH</h2>
+<p><strong><em> Las Rutas </em></strong></p>
+<pre><code class="language-php">Route::get('/formularioBusqueda', [PeliculasController::class, formulario'])-&gt;name('formularioBusqueda');   
+Route::post('/product/resultado', [ProductController:class, 'resultado'])-&gt;name('resultadoBusqueda');
+</code></pre>
+<p><strong><em> En la vista 'formularioBusqueda' </em></strong></p>
+<pre><code class="language-php">
+@if (session('error'))
+&lt;div&gt;{{ session('error') }}&lt;/div&gt;   &lt;!--En caso de no encontrar el producto en la BBDD muestra error--&gt;
+@endif
+
+&lt;form action=&quot;{{ route('resultadoBusqueda') }}&quot; method=&quot;POST&quot;&gt;
+@csrf
+
+&lt;input id=&quot;title name=&quot;title&quot; type=&quot;text&quot; value=&quot;{{ old('product') }}&quot; placeholder=&quot;Product Title&quot;&gt;
+
+&lt;input type=&quot;submit&quot; value=&quot;Search&quot;&gt;
+&lt;/form&gt;
+</code></pre>
+<p><strong><em>  En el controlador </em></strong></p>
+<pre><code class="language-php">
+public function resultado(Request $request)
+{
+    try {
+        $product = Product::where('title',$request-&gt;get('title'));  //busca el producto en la BBDD
+    } catch (ModelNotFoundException $exception) {
+        return back()-&gt;withError($exception-&gt;getMessage())-&gt;withInput();   //en caso de no encontrar en la BBDD captura la excepción y envia la info a la misma vista 
+        //return $exception-&gt;getMessage();
+
+    }
+    return view('resultadoBusqueda', compact('product'));   //en caso de encontrar el producto manda otra vista el resultado
+}
+</code></pre>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.2a6f1dda.min.js"></script>
+      
+    
+  </body>
+</html>
