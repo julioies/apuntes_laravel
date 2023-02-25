@@ -2,6 +2,8 @@
 
 ## RUTAS
 
+
+
 Las rutas se situan en ***Mi-PROYECTO->ROUTES->WEB***
 
 ```.
@@ -11,7 +13,7 @@ Las rutas se situan en ***Mi-PROYECTO->ROUTES->WEB***
 
 Aquí podemos ver la primera ruta.
 
-``` php
+``` py
 Route::get('mundo', function () {
     return 'Hello Clase 2 DAW';
 });
@@ -19,7 +21,7 @@ Route::get('mundo', function () {
 
 Le pasamos a la ruta un identificador que tendrá un valor por defecto y esa ruta tendrá un nombre dentro de la misma vista, asignamos valor por defecto
 
-```php
+``` py
 Route::get('/show/{id?}',function($id="122"){
 
   return $id;
@@ -29,7 +31,7 @@ Route::get('/show/{id?}',function($id="122"){
 
 Otra forma de ruta y utilizando un pattern númerico (sólo pueden introducir números)
 
-```php
+``` py
 Route::get('/par-o-impar-{numero}',function($numero){
      return $numero;
 
@@ -47,7 +49,7 @@ Route::get('/par-o-impar-{numero}',function($numero){
 *** Restricciones con Expresiones Regulares ***
 
 
-```php
+``` py
 Route::get('user/{name}', function ($name) {
 //
 })->where('name', '[A-Za-z]+');   
@@ -55,7 +57,7 @@ Route::get('user/{name}', function ($name) {
 //nomes poden passar lletres miníscules o Majúscules como mínim una volta
 ```
 
-```php
+``` py
 Route::get('user/{id}', function ($id) {
 //
 })->where('id', '[0-9]+');
@@ -63,7 +65,7 @@ Route::get('user/{id}', function ($id) {
 //com a mínim, a soles podem passar com a mínim un nombre.
 ```
 
-```php
+``` py
 Route::get('user/{id}/{name}', function ($id, $name) {
 //
 })->where(['id' => '[0-9]+', 'name' => '[a-z]+']);
@@ -73,7 +75,7 @@ Route::get('user/{id}/{name}', function ($id, $name) {
 
 Ruta que nos lleva directamente a una vista e incluso pasarle un argumento.
 
-```php
+``` py
 Route::view (directo a la vista)
 
 Route::view('/registro', 'registro');
@@ -85,7 +87,7 @@ Route::view('/welcome', 'clase', ['nombre' => 'Julio']);
 
 Especificamos que podemos usar GET y POST para una ruta
 
-```php
+``` py
 //verbos HTTP múltiples
 Route::match(['get', 'post'], '/', function () {
 //
@@ -111,7 +113,7 @@ Creamos un controlador vacio, **App->http->Controller->**
          └── Controller
 ```
 
-```php
+``` py
 //en route
 //añadir la ruta en web.php arriba del todo.
 
@@ -170,7 +172,7 @@ También podemos crear una carpeta que contiene vistas "menú" y dentro las pág
 
 ## SESIONES GLOBALES
 
-```php
+``` py
 session(['nombre'=>'Julio']); //otra forma de crear variables sesión
 
 $nombre= session('nombre');  
@@ -191,7 +193,7 @@ https://laravel.com/docs/9.x/session#main-content
 
 ## MENSAJES FLASH
 
-```php
+``` py
 //cuando en una página queremos enviar un mensaje flahs podemos poner
 
 return back()->with('status','hemos recibido el mensaje'); //guardamos un mensaje flash
@@ -223,7 +225,7 @@ swal("Buen Trabajo!", "{{ session('success') }}", "success");
 ```
 
 *** CONTROLADOR ***
-```php
+``` py
 //en el controlador 
 return back()->with('success','Hemos recibido el mensaje');
 ```
@@ -239,7 +241,7 @@ Es preferible crearlo en ese orden, también hay que tener cuidado a la hora de 
 
 `php artisan make:migration create_articulos_table --create="articulos"`
 
-```php
+``` py
 //Tabla articulos
  Schema::create('articulos', function (Blueprint $table) {
             $table->increments('id')->unsigned();
@@ -262,7 +264,7 @@ Es preferible crearlo en ese orden, también hay que tener cuidado a la hora de 
 
 `php artisan make:model Articulo`
 
-```php
+``` py
 //Modelo Articulo
 class Articulo extends Model
 {
@@ -281,7 +283,7 @@ class Articulo extends Model
 
 2. podemos ver que dentro de database->seeds se genera la nueva semilla e introducimos los siguientes datos.
 
-```php
+``` py
 //añadimos en la clase NombreSeeder
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -302,7 +304,7 @@ for ($i = 0; $i < 10; $i++) {
 
 `$this->call([NombreSeeder::class]);`
 
-```php
+``` py
 
 public function run()
 {
@@ -325,7 +327,7 @@ https://laravel.com/docs/9.x/seeding#writing-seeders
 
 Cuando estamos usando conexiones múltiple
 
-```php
+``` py
 //añadimos 
 use Illuminate\Support\Facades\DB;
 ....
@@ -369,7 +371,7 @@ https://laravel.com/docs/9.x/queries#running-database-queries
 
 ### CONSULTAS SQL NATIVAS
 
-```php
+``` py
 //seleccionar
 $results = DB::select('select * from articulos where id = :id', ['id' => 1]);
 
@@ -387,7 +389,7 @@ DB::statement('drop table users');
 ```
 ### ELOQUENT
 
-```php
+``` py
 $articulos=Articulo::all();  //$escritores=Escritor::get();
 
 $articulosOrdenados=Articulo::orderBy('descripcion','DESC')->get();
@@ -431,7 +433,7 @@ $ArticuloUlti=Articulo::latest('created_at')->get();   //muestra los últimos qu
 
 * `findOrCreate()` en el caso que no existe en la BD, lo crea.
 
-```php
+``` py
 $dato=Articulo::firstOrCreate(['titulo'=>'Principito','descripcion'=>'Mi primer articulo']);
 ```
 
@@ -441,7 +443,7 @@ https://laravel-news.com/firstornew-firstorcreate-firstor-updateorcreate
 
 * `Pluck()` en caso de obtener una colección y filtrar la parte que nos interesa.
 
-```php
+``` py
 $users = User::all(); 
 // Devuelve una colección de usuarios, por ejemplo, ['name' => 'John', 'age' => 55],['name' => 'Melissa', 'age' => 18],['name' => 'Bob', 'age' => 43]
 
@@ -456,12 +458,12 @@ https://www.laraveltip.com/que-es-mejor-eloquent-query-builder-o-sql/
 ## PAGINAR
 
 *** en el CONTROLADOR de index ***
-```php
+``` py
   $datos=Dato::latest()->paginate(3);
 ```
 
 *** en la VISTA debajo de forelse ***
-```php
+``` py
 //en el momento que insertamos datos dentro de la tabla y queremos mostrar los datos de forma más humana.
 <ul>
   @forelse ($datos as $item)
@@ -490,7 +492,7 @@ Creas la tabla
 
 Luego en la migración creas los campos para la base de datos
 
-```php
+``` py
 Schema::create('blogs', function (Blueprint $table) {
 $table->bigIncrements('id');
 $table->string('blog_title');
@@ -507,7 +509,7 @@ Para generar las rutas podemos hacer dos cosas:
 
 Generas las rutas insertando el fichero Web
 
-```php
+``` py
 use App\Http\Controllers\PhotoController;
 ..............
 Route::resource('photos', PhotoController::class);
@@ -540,7 +542,7 @@ _____
 
 2. Diseñar nuestras rutas y controlador en castellano uno a uno
 
-```php
+``` py
 //Diseñamos nuestras rutas en Web
 use App\Http\Controllers\DatosController;
 
@@ -561,7 +563,7 @@ Diseñamos la migración y el modelo, en caso de necesitarlo
 
 Creamos la migracion que es la tabla en la base de datos "datos"
 
-```php
+``` py
 Schema::create('datos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre');
@@ -574,7 +576,7 @@ Creamos el modelo "Dato" que es la Entidad que vamos a trabajar y dentro ponemos
 
 `php artisan make:model Dato`
 
-```php
+``` py
 protected $table= 'datos';
 protected $fillable = ['nombre', 'descripcion']; //¿Qué atributos deberías incluir en dicho array?
 
@@ -586,7 +588,7 @@ protected $fillable = ['nombre', 'descripcion']; //¿Qué atributos deberías in
 
 *** en el CONTROLADOR ***
 
-```php
+``` py
  public function index(){
 
     $datos=Dato::all();
@@ -596,7 +598,7 @@ protected $fillable = ['nombre', 'descripcion']; //¿Qué atributos deberías in
 ```
 
 *** en la VISTA ***
-```php
+``` py
 
 @forelse ($datos as $item)
 <li> 
@@ -618,7 +620,7 @@ protected $fillable = ['nombre', 'descripcion']; //¿Qué atributos deberías in
 
 *** En el CONTROLADOR ***
 
-```php
+``` py
  public function almacenar(Request $request){
 
 //LA MEJOR FORMA DE INSERTAR DATOS ya que se hace la comprobación de los campos obligatorios para que no hagan inyeccion y luego inserta.
@@ -635,7 +637,7 @@ protected $fillable = ['nombre', 'descripcion']; //¿Qué atributos deberías in
 ```
 
  *** En la VISTA ***
-```php
+``` py
 @if ($errors->any())  //esto muestra todos los errores seguidos
     <ul>
         @foreach ($errors->all() as $error)
@@ -667,7 +669,7 @@ protected $fillable = ['nombre', 'descripcion']; //¿Qué atributos deberías in
 
 *** EN EL CONTROLADOR ***
 
-```php
+``` py
 public function editar($id){
 
     $dato = Dato::findOrFail($id);  //como no está el dato si nos equivocamos de id nos muestra la página de error 404, podemos crear uno personalizado en la view->errors->404.blade.php , creamos carpeta "errors"
@@ -677,7 +679,7 @@ public function editar($id){
 
 *** EN LA VISTA para EDITAR ***
 
-```php
+``` py
 @if ($errors->any())
         <div class="alert alert-danger">
             <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -712,7 +714,7 @@ public function editar($id){
 
 ***  En el CONTROLADOR para ALMACENAR DATOS ya MODIFICADOS ***
 
-```php
+``` py
 public function actualizar(Request $request)
     {
         $validacion = $request->validate([
@@ -738,7 +740,7 @@ public function actualizar(Request $request)
 
 *** En el controlador Borrar ***
 
-```php
+``` py
     public function borrar($id){
 
         $dato = Dato::findOrFail($id);
@@ -751,7 +753,7 @@ public function actualizar(Request $request)
 
 Crearemos la tabla Usuario y Teléfono. El modelo de User puede estar asociado con un modelo de teléfono. Para definir esta relación, colocaremos un método de phone en el modelo User. El método de phone debe llamar al método hasOne y devolver su resultado.
 
-```php
+``` py
 //tabla users 
 Schema::create('users', function (Blueprint $table) {
 
@@ -767,7 +769,7 @@ Schema::create('users', function (Blueprint $table) {
 
 ```
 
-```php
+``` py
 
 //Crear Tabla de Migración de Teléfonos con Clave Foránea
 Schema::create('phones', function (Blueprint $table) {
@@ -788,7 +790,7 @@ Schema::create('phones', function (Blueprint $table) {
 
 ***  Modelo de usuario: ***
 
-```php
+``` py
 
  namespace App\Models;
 
@@ -810,7 +812,7 @@ Schema::create('phones', function (Blueprint $table) {
 
 Podemos acceder al modelo de Phone desde nuestro modelo de User. A continuación, definamos una relación en el modelo Phone que nos permitirá acceder al usuario propietario del teléfono. Podemos definir el inverso de una relación hasOne usando el método belongsTo.
 
-```php
+``` py
 
 namespace App\Models; 
 
@@ -835,7 +837,7 @@ class Phone extends Model
 
 Una vez que se define la relación, podemos recuperar el registro relacionado usando las propiedades dinámicas de Eloquent. Entonces, aquí podemos usar el modelo de usuario con función de teléfono.
 
-```php
+``` py
 
 $phone = User::find(1)->phone;
 
@@ -845,14 +847,14 @@ $user = Phone::find(1)->user;
 
 ***  Crear registros usando el modelo ***
 
-```php
+``` py
 $user = User::find(1);
 $phone = new Phone; 
 $phone->phone_no = '9876543210';
 $user->phone()->save($phone);
 ```
 
-```php
+``` py
 $phone = Phone::find(1);
 $user = User::find(1);
 $phone->user()->associate($user)->save();
@@ -873,7 +875,7 @@ Una categoria tiene muchos artículos. Creamos primero las migraciones (bases da
 
 *** Tablas migraciones ***
 
-```php
+``` py
 //tabla Categories
   Schema::create('categorias', function (Blueprint $table) {
             $table->increments('id')->unsigned();
@@ -900,7 +902,7 @@ Una categoria tiene muchos artículos. Creamos primero las migraciones (bases da
 
 `php artisan make:model Categoria`
 
-```php
+``` py
 //Modelo Categoria
 class Categoria extends Model
 {
@@ -936,7 +938,7 @@ class Articulo extends Model
 
 *** En el controlador ***
 
-```php
+``` py
 public function insertar()
     {
         $categoria = Categoria::find(3);   //buscamos que ya tenemos almacenada o la creamos.
@@ -960,7 +962,7 @@ http://documentacion-laravel.com/eloquent-relationships.html#insertando-y-actual
 
 Muestra el nombre de todas las categorias de todos los artículos. Una consulta para obtener todos los artículos en la tabla, después otra consulta para cada articulos para obtener quien es el autor
 
-```php
+``` py
  $articulos = Articulo::all();
 
  foreach ($articulos as $articulo) {
@@ -972,7 +974,7 @@ Muestra el nombre de todas las categorias de todos los artículos. Una consulta 
 
 Al usar la carga previa o carga impaciente (Eager Loading) para reducir esta operación a solo 2 consultas
 
-```php
+``` py
 $articulos = Articulo::with('categoria')->get();
 
  foreach ($articulos as $articulo) {
@@ -987,7 +989,7 @@ https://styde.net/lazy-loading-vs-eager-loading/
 
 Borra la categoria 9 y todos los articulos relacionados (cascada)
 
-```php
+``` py
 $Categoria = Categoria::find(9);
 $Categoria->delete();
 
@@ -1013,7 +1015,7 @@ Dentro de la tabla de migraciones
 
 *** ETIQUETAS ***
 
-```php
+``` py
 Schema::create('etiquetas', function (Blueprint $table) {
             $table->increments('id');
 
@@ -1025,7 +1027,7 @@ Schema::create('etiquetas', function (Blueprint $table) {
 ```
 *** POSTS ***
 
-```php
+``` py
    Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
 
@@ -1041,7 +1043,7 @@ Schema::create('etiquetas', function (Blueprint $table) {
 ```
 
 *** ETIQUETA_POST ***
-```php
+``` py
  Schema::create('etiqueta_post', function (Blueprint $table) {
             $table->increments('id');
 
@@ -1058,7 +1060,7 @@ Schema::create('etiquetas', function (Blueprint $table) {
 
 Dentro de los modelos
 
-```php
+``` py
 //Modelo POST
 class Post extends Model
 {
@@ -1098,7 +1100,7 @@ public function insertarTablaIntermedia(){
 
 *** OBTENER DATOS DE LA otra TABLA RELACIONADA. ***
 
-```php
+``` py
 return Post::find(1)->etiquetas()->get();  
 //del Post(1) obtiene todas las etiquetas relacionadas
 
@@ -1153,7 +1155,7 @@ volver hacer login peta y te manda a home por tanto cambiar a raiz.-->
 
 *** SABER SI ESTÁ LOGEADO EN EL CONTROLADOR ***
 
-```php
+``` py
 use Illuminate\Support\Facades\Auth;
 
 if(Auth::check()){ 
@@ -1172,7 +1174,7 @@ $user->name;
 
 También podemos indicarlo directamente en el constructor de un controlador 
 
-```php
+``` py
 public function __construct()
 {
 $this->middleware('auth');
@@ -1181,13 +1183,13 @@ $this->middleware('auth');
 
 Otra forma es indicándolo en la ruta para protegerla 
 
-```php
+``` py
 Route::get('/resultado', 'PruebasController@ejemplo')->middleware('auth);
 ```
 
 *** LOGOUT ***
 
-```php
+``` py
 @guest 
 <a href="{{route('login')}}">Login</a>
 @else   
@@ -1203,7 +1205,7 @@ Route::get('/resultado', 'PruebasController@ejemplo')->middleware('auth);
 
 vamos a Web y modificamos ruta
 
-```php
+``` py
 Auth::routes(['register'=>false]);
 ```
 
@@ -1212,7 +1214,7 @@ Auth::routes(['register'=>false]);
 En el caso que querramos bloquear al usuario por intentos de ingresos fallidos y penalizar el tiempo a la hora de volver autenficarte,
 bastará con añadir el controlador por defecto  ***app->http->Controller->auth-> LoginController***
 
-```php
+``` py
 class LoginController extends Controller
 {
    
@@ -1227,13 +1229,13 @@ class LoginController extends Controller
 
 *** Las Rutas ***
 
-```php
+``` py
 Route::get('/formularioBusqueda', [PeliculasController::class, formulario'])->name('formularioBusqueda');   
 Route::post('/product/resultado', [ProductController:class, 'resultado'])->name('resultadoBusqueda');
 ```
 
 *** En la vista 'formularioBusqueda' ***
-```php
+``` py
 
 @if (session('error'))
 <div>{{ session('error') }}</div>   <!--En caso de no encontrar el producto en la BBDD muestra error-->
@@ -1249,7 +1251,7 @@ Route::post('/product/resultado', [ProductController:class, 'resultado'])->name(
 ```
 
 ***  En el controlador ***
-```php
+``` py
 
 public function resultado(Request $request)
 {
